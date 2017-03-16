@@ -18,7 +18,7 @@ public class Tester {
 		
 		Timer t = new Timer();
 		
-		while(t.minutesElapsed<60 && ticketsSold<100) {
+		while(t.minutesElapsed<60 && ticketsSold<100 && ticketsSold < 10*numCustomers) {
 			
 			
 		}
