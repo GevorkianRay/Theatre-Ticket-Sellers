@@ -12,12 +12,10 @@ public class Timer implements Runnable {
 			float seconds = (float) ((elapsed - startTime) / 1000F);
 			int minutes = (int)(seconds)/60;
 			minutesElapsed=minutes;
-			System.out.println(minutesElapsed);
+		//	System.out.println(minutesElapsed);
 		}
 		
 	}
 	
-	public static void main(String[] args) {
-		new Thread(new Timer()).start();
-	}
+
 }
