@@ -4,5 +4,6 @@ public class HSeller extends Seller {
 		super(numCust, a);
 		max=2;
 		min=1;
+		row=0;
 	}
 }
