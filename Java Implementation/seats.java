@@ -25,3 +25,29 @@ public class seats {
 			return true;
 		}
 		
+		
+		public String toString() {
+			for(int i = 0 ; i < seat.length;i++) {
+				for(int x = 0 ;  x < seat.length;x++) {
+					System.out.print(seat[i][x]);
+				}
+				System.out.println();
+			}
+			return "" ;
+		}
+	
+		
+		
+		
+		
+		
+	
+	/*	double startTime=System.nanoTime();
+		System.out.println(startTime);
+		Thread.sleep(10000);
+		double x = System.nanoTime();
+		double seconds = (double)(x-startTime) / 1000000000.0;
+
+		System.out.println(x);
+		System.out.println(seconds);*/
+	}
