@@ -4,5 +4,7 @@ public class MSeller extends Seller {
 		super(numCust,a);
 		max=4;
 		min=2;
+		row=5;
+		
 	}
 }
