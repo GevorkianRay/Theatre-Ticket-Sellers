@@ -8,10 +8,13 @@ public class Seller implements Runnable {
 	 int max;
 	 int min;
 	 seats map;
-	 
+	 int row;
+	 int col;
 	 
 	 
 	 public Seller(int numCustomers, seats mapOfSeats) {
+		 row=0;
+		 col=0;
 		 map=mapOfSeats;
 		 totalCustomers=numCustomers;
 		 t=new Timer();
@@ -45,7 +48,7 @@ public class Seller implements Runnable {
 			t.run();
 			Customer current=listOfCust.get(0);
 			if(shouldSell(t.minutesElapsed,current)) {
-				sellTicket(max, min);
+				sellTicket(max, min,row,col);
 			}
 			
 		}
@@ -65,10 +68,14 @@ public class Seller implements Runnable {
 	/*
 	 * sells ticket to customers
 	 */
-	public void sellTicket(int min1, int max1) {
+	public void sellTicket(int min1, int max1,int row, int col) {
 		int range = max1-min1+1;
 		sellingTime=min1 +(int)((Math.random()*range));
+		int timeToSell= sellingTime+ t.minutesElapsed;
 		
+		if(t.minutesElapsed==timeToSell) {
+			
+		}
 		
 		
 	}
