@@ -1,8 +1,10 @@
 
-public class LSeller extends Seller {
-	public LSeller(int numCust,seats a) {
+public class MSeller extends Seller {
+	public MSeller(int numCust, seats a) {
 		super(numCust,a);
-		max=7;
-		min=4;
+		max=4;
+		min=2;
+		row=5;
+		
 	}
 }
