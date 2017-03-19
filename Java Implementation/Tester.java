@@ -1,9 +1,9 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Tester {
+public class Tester implements Runnable{
 	
-	
+	static ArrayList<Seller> sell = new ArrayList<Seller>();
 	
 	public static void main(String[] args) throws InterruptedException {
 		System.out.println("Enter # of customers:");// gets the number of customers
@@ -12,7 +12,7 @@ public class Tester {
 		scan.close();
 		seats seat=new seats();
 		Timer t = new Timer();
-		ArrayList<Seller> sell = new ArrayList<Seller>();
+	
 		HSeller H1 = new HSeller(numCustomers,seat,"H1",t);
 		MSeller M1 = new MSeller(numCustomers,seat,"M1",t);
 		MSeller M2 = new MSeller(numCustomers,seat,"M2",t);
@@ -35,10 +35,10 @@ public class Tester {
 		Thread t9 = new Thread(L5);
 		Thread t10 = new Thread(L6);
 		
-	//	t1.start();
-		//t2.start();
-		//t3.start();
-		//t4.start();
+		t1.start();
+		t2.start();
+		t3.start();
+		t4.start();
 		t5.start();
 		t6.start();
 		t7.start();
@@ -47,16 +47,44 @@ public class Tester {
 		t10.start();
 		sell.add(H1);
 		sell.add(M1);
+		sell.add(M2);
+		sell.add(M3);
 		sell.add(L1);
-		int sumNumSold = 0;
-		int sumTurnedAway = 0;
-		for(int i = 0; i<sell.size(); i++){
-			sumNumSold += sell.get(i).numTicketsSold;
-			sumTurnedAway =+ sell.get(i).turnedAway;
+		sell.add(L2);
+		sell.add(L3);
+		sell.add(L4);
+		sell.add(L5);
+		sell.add(L6);	
+		Tester a = new Tester();
+		a.run();
+	
+	
+	}
+
+	public void run() {
+		// TODO Auto-generated method stub
+		try {
+			Thread.sleep(70000);
 			
+			int sumNumSold = 0;
+			int sumTurnedAway = 0;
+			for(int i = 0; i<sell.size(); i++){
+				sumNumSold += sell.get(i).numTicketsSold;
+				sumTurnedAway =+ sell.get(i).turnedAway;
+				
+			}
+			System.out.println("number sold: " + sumNumSold);
+			System.out.println("number turned away: " +sumTurnedAway );
+			
+			System.out.println("final seat chart");
+			
+			sell.get(0).map.toString();
+		
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 		
-	
 	}
 	
 }
