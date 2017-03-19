@@ -14,10 +14,13 @@ public class MSeller extends Seller {
 		while(a.getTime()<sellingTime) {
 			//System.out.println("i am selling" + a.getTime()  + "\t " + sellingTime);//do nothing until it is time to sell
 		}
+		if(!listOfCust.isEmpty()) {
 		checkSeatMap(c);
+		}
+		turnedAway=listOfCust.size();
 		
 	}
-	public void checkSeatMap(Customer cust) {
+	public synchronized void checkSeatMap(Customer cust) {
 		
 		Customer c=listOfCust.remove(0); //remove first customer on list
 		boolean x = true;
@@ -25,12 +28,16 @@ public class MSeller extends Seller {
 			for(int co=0; co < 10 && x; co++ ) {
 				if(!map.isSold(ro, co)) {
 					x=false;
+					numTicketsSold++;
 					map.seat[ro][co]=c.name;
 					try {
-		                Thread.sleep(1000);
+		                Thread.sleep(10);
 		            } catch (InterruptedException e) {
 		                Thread.currentThread().interrupt();
 		            }
+					System.out.println();
+					System.out.println();
+					System.out.println();
 					map.toString();
 				}
 			}
