@@ -10,10 +10,13 @@ public class Seller implements Runnable {
 	 seats map;
 	 int row;
 	 int col;
+	 String name;
 	 
 	 
-	 public Seller(int numCustomers, seats mapOfSeats) {
+	 public Seller(int numCustomers, seats mapOfSeats,String SellerName) {
+		 name=SellerName;
 		 row=0;
+		 
 		 col=0;
 		 map=mapOfSeats;
 		 totalCustomers=numCustomers;
@@ -24,7 +27,7 @@ public class Seller implements Runnable {
 		 min =0 ;
 		 for(int i = 0 ; i < numCustomers;i++) {
 			 
-			 listOfCust.add(new Customer((int)(Math.random()*59)));
+			 listOfCust.add(new Customer((int)(Math.random()*59), SellerName+i));
 		 }
 		 
 		 Collections.sort(listOfCust, new customerArrivalCompare());
@@ -43,12 +46,14 @@ public class Seller implements Runnable {
 		}
 	 
 	public void run() {
-		
 		while(t.minutesElapsed<60 && numTicketsSold<totalCustomers) {
 			t.run();
 			Customer current=listOfCust.get(0);
+			
 			if(shouldSell(t.minutesElapsed,current)) {
-				sellTicket(max, min,row,col);
+				
+				
+				sellTicket(max, min);
 			}
 			
 		}
@@ -68,16 +73,37 @@ public class Seller implements Runnable {
 	/*
 	 * sells ticket to customers
 	 */
-	public void sellTicket(int min1, int max1,int row, int col) {
-		int range = max1-min1+1;
+	public void sellTicket(int min1, int max1) {
+		int range = max1-min1+1;							
 		sellingTime=min1 +(int)((Math.random()*range));
-		int timeToSell= sellingTime+ t.minutesElapsed;
 		
-		if(t.minutesElapsed==timeToSell) {
-			
+		int timeToSell= sellingTime+ t.minutesElapsed;  // creates a random sale time depending on seller type
+		System.out.println(t.minutesElapsed);
+		System.out.println(name+ " is selling in " + timeToSell);
+		Integer tTS=new Integer(timeToSell);
+		Integer elapsed=new Integer(t.minutesElapsed);
+		System.out.println(elapsed.compareTo(tTS)==0);
+		while(elapsed.compareTo(arg0))
+		
+	
+		
+	}
+	
+	public void checkSeatMap() {
+		Customer c=listOfCust.remove(0); //remove first customer on list
+		boolean x = true;
+		for(int ro = 0 ; x; ro++) {
+			for(int co=0; x; co++ ) {
+				if(map.isSold(ro, co)) {
+					x=false;
+					map.seat[ro][co]=c.name;
+				}
+			}
 		}
-		
-		
+	}
+	
+	public String toString() {
+		return name;
 	}
 	
 	
