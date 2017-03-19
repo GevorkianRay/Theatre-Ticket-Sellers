@@ -42,12 +42,5 @@ public class seats {
 		
 		
 	
-	/*	double startTime=System.nanoTime();
-		System.out.println(startTime);
-		Thread.sleep(10000);
-		double x = System.nanoTime();
-		double seconds = (double)(x-startTime) / 1000000000.0;
-
-		System.out.println(x);
-		System.out.println(seconds);*/
+	
 	}
