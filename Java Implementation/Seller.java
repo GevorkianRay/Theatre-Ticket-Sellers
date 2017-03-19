@@ -59,7 +59,13 @@ public class Seller implements Runnable {
 		}
 			
 		}
-		turnedAway=listOfCust.size();
+		
+		
+	}
+	
+	public int getNumTurned() {
+		turnedAway=totalCustomers-numTicketsSold;
+		return turnedAway;
 	}
 	
 	/*

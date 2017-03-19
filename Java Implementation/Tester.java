@@ -65,12 +65,18 @@ public class Tester implements Runnable{
 		// TODO Auto-generated method stub
 		try {
 			Thread.sleep(70000);
+			int sumTurnedAway = 0;
+			for(int i = 0 ; i < sell.size() ; i++) {
+				System.out.println(sell.get(i).name+"\t"+sell.get(i).listOfCust.size());
+				sumTurnedAway= sumTurnedAway+sell.get(i).listOfCust.size();
+				System.out.println("Turned away:" +sumTurnedAway);
+			}
 			
 			int sumNumSold = 0;
-			int sumTurnedAway = 0;
+		
 			for(int i = 0; i<sell.size(); i++){
 				sumNumSold += sell.get(i).numTicketsSold;
-				sumTurnedAway =+ sell.get(i).turnedAway;
+				//sumTurnedAway =+ sell.get(i).turnedAway;
 				
 			}
 			System.out.println("number sold: " + sumNumSold);
