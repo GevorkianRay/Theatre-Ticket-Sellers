@@ -46,7 +46,7 @@ public class Seller implements Runnable {
 		}
 	 
 	public void run() {
-		while(t.minutesElapsed<60 && numTicketsSold<totalCustomers) {
+		while(t.minutesElapsed<60) {
 			int currentTime= t.getTime();
 			if(!listOfCust.isEmpty()) { 
 			Customer current=listOfCust.get(0);
@@ -54,14 +54,14 @@ public class Seller implements Runnable {
 				current=listOfCust.remove(0);
 				
 				System.out.println(name + " is currently working on sale" + " at time " + currentTime);
-				numTicketsSold++;
+			
 				sellTicket(max, min,current);				//work for a time
 			}
 			
 		}
 			
 		}
-		turnedAway = listOfCust.size();
+		
 		
 	}
 	
