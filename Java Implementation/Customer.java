@@ -1,7 +1,9 @@
 public class Customer implements Comparable<Customer> {
 	int arrivalT;
-	public Customer(int t) {
+	String name;
+	public Customer(int t, String custName) {
 		arrivalT=t;
+		name=custName;
 	}
 	public int compareTo(Customer arg0) {
 		// TODO Auto-generated method stub
