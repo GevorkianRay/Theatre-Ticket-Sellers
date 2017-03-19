@@ -46,9 +46,9 @@ public class Seller implements Runnable {
 		}
 	 
 	public void run() {
-		while(t.minutesElapsed<70) {
+		while(t.minutesElapsed<60) {
 			int currentTime= t.getTime();
-			if(!listOfCust.isEmpty()) { 
+			if(!listOfCust.isEmpty() && map.availSeat()) { 
 			Customer current=listOfCust.get(0);
 			if(shouldSell(currentTime,current)) {	
 				System.out.println(name + " is currently working on sale" + " at time " + currentTime);
@@ -59,8 +59,7 @@ public class Seller implements Runnable {
 		}
 			
 		}
-		
-		
+		turnedAway=listOfCust.size();
 	}
 	
 	/*

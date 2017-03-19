@@ -35,6 +35,29 @@ public class seats {
 		}
 	
 		
+		public boolean availSeat() {
+			boolean soldAllSeats = false;
+			for(int i= 0 ; i < seat.length;i++) {
+				for(int x = 0 ; x < seat.length;x++) {
+					if(!isSold(i,x)) {
+						soldAllSeats=true;
+					}
+				}
+			}
+			
+			return soldAllSeats;
+		}
+		
+		public static void main(String[] args) {
+			seats s= new seats();
+			for(int i = 0 ; i < 10;i++) {
+				for(int x= 0 ; x<10;x++) {
+					s.seat[i][x]="l";
+				}
+			}
+			System.out.println(s.availSeat());
+		}
+		
 		
 		
 		
