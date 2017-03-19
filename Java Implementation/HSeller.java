@@ -14,23 +14,30 @@ public class HSeller extends Seller {
 		while(a.getTime()<sellingTime) {
 			//System.out.println("i am selling" + a.getTime()  + "\t " + sellingTime);//do nothing until it is time to sell
 		}
+		if(!listOfCust.isEmpty()) {
 		checkSeatMap(c);
+		}
+		turnedAway=listOfCust.size();
 		
 	}
 	
-	public void checkSeatMap( Customer c ) {
+	public synchronized void checkSeatMap( Customer c ) {
 	
 		boolean checkingForEmptySeat = true;
 		for(int ro = 0 ; ro < 10 && checkingForEmptySeat; ro++) {
 			for(int co=0;co < 10 && checkingForEmptySeat; co++ ) {
 				if(!map.isSold(ro, co)) {
+					numTicketsSold++;
 					checkingForEmptySeat=false;
 					map.seat[ro][co]=c.name;
 					try {
-		                Thread.sleep(1000);
+		                Thread.sleep(100);
 		            } catch (InterruptedException e) {
 		                Thread.currentThread().interrupt();
 		            }
+					System.out.println();
+					System.out.println();
+					System.out.println();
 					map.toString();
 				}
 			
