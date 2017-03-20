@@ -47,7 +47,11 @@ public class MSeller extends Seller {
 				ro = 6;
 			} else if (ro == 6) {
 				ro = 4;
-			}else {
+			}else if(ro == 4){
+				ro = 7;
+			}else if(ro == 7){
+				ro = 3;
+			}else{
 				ro--;
 			}
 		}
