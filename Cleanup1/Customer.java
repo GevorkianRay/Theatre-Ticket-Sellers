@@ -14,7 +14,7 @@ public class Customer implements Comparable<Customer>
      */
 	public Customer(int time, String name)
 	{
-		customerArrivalTime = time;	// Setting the customer's arrival time to the given time.
+		customerArrivalTime = time; // Setting the customer's arrival time to the given time.
 		customerName = name; // Setting the customer's name to the given name.
 	}
 
