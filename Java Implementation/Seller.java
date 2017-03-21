@@ -32,6 +32,9 @@ public class Seller implements Runnable {
 		 
 		 Collections.sort(listOfCust, new customerArrivalCompare());
 		 
+		 for(int i = 0 ; i < listOfCust.size();i++) {
+			 listOfCust.get(i).name=SellerName+i;
+		 }
 		 
 	 }
 	 /*

@@ -53,7 +53,7 @@ public class Tester implements Runnable{
 		sell.add(L2);
 		sell.add(L3);
 		sell.add(L4);
-		sell.add(L5);
+	sell.add(L5);
 		sell.add(L6);	
 		Tester a = new Tester();
 		a.run();

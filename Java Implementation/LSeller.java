@@ -23,6 +23,7 @@ public class LSeller extends Seller {
 	}
 	
 	public synchronized void checkSeatMap(Customer cust) {
+		
 		boolean x = true;
 		for(int ro = 9 ;ro > 0 && x; ro--) {
 			for(int co=0; co < 10 && x; co++ ) {
@@ -30,7 +31,7 @@ public class LSeller extends Seller {
 					x=false;
 					listOfCust.remove(0);
 					numTicketsSold++;
-					map.seat[ro][co]=this.name + "-" + numTicketsSold;
+					map.seat[ro][co]=cust.name;
 					try {
 		                Thread.sleep(10);
 		            } catch (InterruptedException e) {

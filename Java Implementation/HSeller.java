@@ -22,6 +22,7 @@ public class HSeller extends Seller {
 	}
 	
 	public synchronized void checkSeatMap( Customer c ) {
+	
 		boolean checkingForEmptySeat = true;
 		for(int ro = 0 ; ro < 10 && checkingForEmptySeat; ro++) {
 			for(int co=0;co < 10 && checkingForEmptySeat; co++ ) {
@@ -29,7 +30,7 @@ public class HSeller extends Seller {
 					numTicketsSold++;
 					listOfCust.remove(0);
 					checkingForEmptySeat=false;
-					map.seat[ro][co]=this.name + "-" + numTicketsSold;
+					map.seat[ro][co]=c.name;
 					try {
 		                Thread.sleep(100);
 		            } catch (InterruptedException e) {
