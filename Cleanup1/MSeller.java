@@ -35,7 +35,6 @@ public class MSeller extends Seller
 		}
 	}
 
-
 	/**
 	 * Checks the seating map with synchronization between sellers.
 	 * @param customer - the customer to place into the seating map.
@@ -49,7 +48,7 @@ public class MSeller extends Seller
 					x = false;
 					listOfCustomers.remove(0);
 					numTicketsSold++;
-					map.seat[ro][co] = customer.customerName;
+					map.seats[ro][co] = customer.customerName;
 					try {
 		                Thread.sleep(10);
 		            } catch (InterruptedException e) {
@@ -62,7 +61,6 @@ public class MSeller extends Seller
 				}
 			}
 			if(counter % 2 == 0) {
-			
 				ro = ro - counter;
 			} else {
 				ro = ro + counter;

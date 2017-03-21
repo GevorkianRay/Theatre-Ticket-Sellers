@@ -27,11 +27,10 @@ public class HSeller extends Seller {
      */
 
     public void sellTicket(int minServeTime, int maxServeTime, Customer customer) {
-        Timer a = new Timer();
+        Timer timer = new Timer();
         sellingTime = (int) Math.ceil((Math.random() * 2));
         System.out.println(name + " takes " + sellingTime + " mins");
-        while (a.getElapsedTime() < sellingTime) {
-        } //do nothing until it is time to sell
+        while (timer.getElapsedTime() < sellingTime) {} //do nothing until it is time to sell
         if (!listOfCustomers.isEmpty()) {
             checkSeatMap(customer);
         }
@@ -49,7 +48,7 @@ public class HSeller extends Seller {
                     numTicketsSold++;
                     listOfCustomers.remove(0);
                     emptySeat = false;
-                    map.seat[ro][co] = customer.customerName;
+                    map.seats[ro][co] = customer.customerName;
                     try {
                         Thread.sleep(100);
                     } catch (InterruptedException e) {

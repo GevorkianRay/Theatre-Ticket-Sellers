@@ -47,7 +47,7 @@ public class LSeller extends Seller {
 					x = false;
 					listOfCustomers.remove(0);
 					numTicketsSold++;
-					map.seat[ro][co] = customer.customerName;
+					map.seats[ro][co] = customer.customerName;
 					try {
 		                Thread.sleep(10);
 		            } catch (InterruptedException e) {
