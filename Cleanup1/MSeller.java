@@ -1,57 +1,55 @@
-public class MSeller extends Seller {
-	public MSeller(int numCust, Seats a,String sellerName,Timer timer) {
-		super(numCust,a,sellerName,timer);
-		maxTimeToServe=4;
-		minTimeToServe=2;
-		row=5;
-		
+/**
+ * M Seller is a type of Seller.
+ * It sells within a specific set of rows and takes a medium amount of time.
+ */
+public class MSeller extends Seller
+{
+	/**
+	 * Constructor for the M Seller.
+	 * @param numberOfCustomers - the maximum number of customers to serve.
+	 * @param seats             - the seats that the M seller can serve.
+	 * @param sellerName        - the name of the current M Seller.
+	 * @param timer             - the timer to track the M seller.
+     */
+	public MSeller(int numberOfCustomers, Seats seats,String sellerName, Timer timer) {
+		super(numberOfCustomers, seats, sellerName, timer);
+		maxTimeToServe = 4;
+		minTimeToServe = 2;
+		row = 5;
 	}
-	public void sellTicket(int min1, int max1,Customer c) {
-		Timer a = new Timer();
-		int currentTime=a.getElapsedTime();
+
+	/**
+	 * Method to sell a ticket to the given customer.
+	 * @param minServeTime - the minimum time to serve a customer.
+	 * @param maxServeTime - the maximum time to serve a customer.
+	 * @param customer     - the customer to sell a ticket to.
+	 */
+	public void sellTicket(int minServeTime, int maxServeTime,Customer customer)
+	{
+		Timer timer = new Timer();
 		sellingTime=(int)(Math.random()*3 + 2);
 		System.out.println(name + " takes " + sellingTime + " mins");
-		while(a.getElapsedTime()<sellingTime) {
-			//System.out.println("i am selling" + a.getTime()  + "\t " + sellingTime);//do nothing until it is time to sell
-		}
+		while(timer.getElapsedTime()<sellingTime) {} // Do nothing until it's time to sell.
 		if(!listOfCustomers.isEmpty()) {
-		checkSeatMap(c);
+		checkSeatMap(customer);
 		}
-	
-		
 	}
-	public synchronized void checkSeatMap(Customer cust) {
-		
-		
-	/*	boolean x = true;
-		for(int ro = 5 ;ro > 0 && x; ro--) {
-			for(int co=0; co < 10 && x; co++ ) {
-				if(!map.isSold(ro, co)) {
-					x=false;
-					listOfCust.remove(0);
-					numTicketsSold++;
-					map.seat[ro][co]=cust.name;
-					try {
-		                Thread.sleep(10);
-		            } catch (InterruptedException e) {
-		                Thread.currentThread().interrupt();
-		            }
-					System.out.println();
-					System.out.println();
-					System.out.println();
-					map.toString();
-				}
-			}
-			}*/
+
+
+	/**
+	 * Checks the seating map with synchronization between sellers.
+	 * @param customer - the customer to place into the seating map.
+	 */
+	public synchronized void checkSeatMap(Customer customer) {
 		int counter = 0;
 		boolean x = true;
-		for(int ro = 5;(ro > 0 && ro<10)  && x;counter++ ) {
-			for(int co=0; co < 10 && x; co++ ) {		
+		for(int ro = 5;(ro > 0 && ro < 10)  && x; counter++ ) {
+			for(int co = 0; co < 10 && x; co++ ) {
 				if(!map.isSold(ro, co)) {
-					x=false;
+					x = false;
 					listOfCustomers.remove(0);
 					numTicketsSold++;
-					map.seat[ro][co]=cust.customerName;
+					map.seat[ro][co] = customer.customerName;
 					try {
 		                Thread.sleep(10);
 		            } catch (InterruptedException e) {
@@ -63,18 +61,12 @@ public class MSeller extends Seller {
 					map.toString();
 				}
 			}
-			if(counter%2==0) { 
+			if(counter % 2 == 0) {
 			
-				ro=ro-counter;
-			}else {
-				ro=ro+counter;
-				
+				ro = ro - counter;
+			} else {
+				ro = ro + counter;
 			}
-			
-			
 			}
-		
-			
 		}
-
 }
