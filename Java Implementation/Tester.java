@@ -10,7 +10,7 @@ public class Tester implements Runnable{
 		Scanner scan=new Scanner(System.in);		//for each seller
 		int numCustomers=scan.nextInt();
 		scan.close();
-		seats seat=new seats();
+		Seats seat=new Seats();
 		Timer t = new Timer();
 	
 		HSeller H1 = new HSeller(numCustomers,seat,"H1",t);
@@ -53,7 +53,7 @@ public class Tester implements Runnable{
 		sell.add(L2);
 		sell.add(L3);
 		sell.add(L4);
-	sell.add(L5);
+		sell.add(L5);
 		sell.add(L6);	
 		Tester a = new Tester();
 		a.run();
@@ -67,9 +67,9 @@ public class Tester implements Runnable{
 			Thread.sleep(70000);
 			int sumTurnedAway = 0;
 			for(int i = 0 ; i < sell.size() ; i++) {
-				System.out.println(sell.get(i).name+"\t"+sell.get(i).listOfCust.size());
-				sumTurnedAway= sumTurnedAway+sell.get(i).listOfCust.size();
-				System.out.println("Turned away:" +sumTurnedAway);
+				//System.out.println(sell.get(i).name+"\t"+sell.get(i).listOfCustomers.size());
+				sumTurnedAway= sumTurnedAway+sell.get(i).listOfCustomers.size();
+				//System.out.println("Turned away:" +sumTurnedAway);
 			}
 			
 			int sumNumSold = 0;

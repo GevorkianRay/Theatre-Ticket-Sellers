@@ -1,24 +1,29 @@
-public class Timer {
-	int minutesElapsed=0;
-	double startTime;
-	public Timer() {
-		startTime=System.currentTimeMillis();
-	}
-	public int getTime() {
-		// TODO Auto-generated method stub
-		/*
-			double elapsed = System.currentTimeMillis();
-			int seconds = (int) ((elapsed - startTime) / 1000);
-			int minutes = (int)(seconds)/60;
-			minutesElapsed = minutes;
-			return minutesElapsed;*/
-		double elapsed = System.currentTimeMillis();
-		int seconds = (int) ((elapsed - startTime) / 1000);
-		int minutes = (int)(seconds)/60;
-		minutesElapsed = seconds;
-		return minutesElapsed;
-	}
-	
+/**
+ * Generic timer class to represent 'time simulation' for the Seller classes.
+ * Runs a timer in terms of seconds - to represent the arrival time / time taken to sell.
+ */
+public class Timer
+{
+	public int secondsElapsed = 0; // Amount of seconds that a specific object has ran for.
+	public double startTime;
 
-	
+	/**
+	 * Instantiates a timer in terms of milliseconds.
+	 */
+	public Timer()
+	{
+		startTime = System.currentTimeMillis(); // Initialize start time.
+	}
+
+	/**
+	 * Method to get the current elapsed time.
+	 * @return int secondsElapsed - the amount of seconds that have passed.
+     */
+	public int getElapsedTime()
+	{
+		double elapsed = System.currentTimeMillis();
+		int seconds = (int) ((elapsed - startTime) / 1000); // Conversion to seconds.
+		secondsElapsed = seconds;
+		return secondsElapsed;
+	}
 }
