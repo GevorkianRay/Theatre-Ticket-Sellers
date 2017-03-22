@@ -79,6 +79,9 @@ public class Tester implements Runnable {
 			}
 			System.out.println("Number of tickets sold total: " + sumNumSold);
 			System.out.println("Number of customer turned away: " + sumTurnedAway);
+			for(int i = 0; i<sell.size(); i++){
+				System.out.println(sell.get(i).name + "\t " + sell.get(i).listOfCustomers.size());
+			}
 
 			System.out.println("Final seating chart:");
 			sell.get(0).map.toString();

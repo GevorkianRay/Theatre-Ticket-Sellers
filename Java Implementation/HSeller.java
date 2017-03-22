@@ -55,6 +55,7 @@ public class HSeller extends Seller {
 	 */
 	public synchronized void checkSeatMap(Customer customer) {
 		boolean emptySeat = true;
+		boolean turned = true;
 		for (int row = 0; row < 10 && emptySeat; row++) {
 			for (int col = 0; col < 10 && emptySeat; col++) {
 				if (!map.isSold(row, col)) {
@@ -72,6 +73,9 @@ public class HSeller extends Seller {
 					System.out.println(c.customerName + " bought a ticket and leaves.");
 					map.toString();
 					System.out.println();
+				}else if( map.soldAllSeats() && turned){
+					System.out.println(customer.customerName +" arrived at "+ customer.customerArrivalTime+ " turned away at " + t.getElapsedTime());
+					turned = false;
 				}
 			}
 		}

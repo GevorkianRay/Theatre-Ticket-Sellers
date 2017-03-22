@@ -53,6 +53,7 @@ public class MSeller extends Seller {
 	 */
 	public synchronized void checkSeatMap(Customer customer) {
 		int counter = 0;
+		boolean turned = true;
 		boolean x = true;
 		for (int ro = 5; (ro > 0 && ro < 10) && x; counter++) {
 			for (int co = 0; co < 10 && x; co++) {
@@ -70,6 +71,9 @@ public class MSeller extends Seller {
 					System.out.println(c.customerName + " bought a ticket and leaves.");
 					map.toString();
 					System.out.println();
+				}else if( map.soldAllSeats() && turned){
+					System.out.println(customer.customerName +" arrived at "+ customer.customerArrivalTime+ " turned away at " + t.getElapsedTime());
+					turned = false;
 				}
 			}
 			if (counter % 2 == 0) {
