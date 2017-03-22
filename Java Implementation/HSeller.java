@@ -38,7 +38,8 @@ public class HSeller extends Seller {
 	public void sellTicket(int minServeTime, int maxServeTime, Customer customer) {
 		Timer timer = new Timer();
 		sellingTime = (int) Math.ceil((Math.random() * 2));
-		//System.out.println(listOfCustomers.get(0).customerName + " arrives at " + this.name + "'s queue");
+		// System.out.println(listOfCustomers.get(0).customerName + " arrives at
+		// " + this.name + "'s queue");
 		System.out.println(name + " takes " + sellingTime + " mins for customer " + customer.customerName);
 		while (timer.getElapsedTime() < sellingTime) {
 		} // do nothing until it is time to sell
@@ -73,8 +74,9 @@ public class HSeller extends Seller {
 					System.out.println(c.customerName + " bought a ticket and leaves.");
 					map.toString();
 					System.out.println();
-				}else if( map.soldAllSeats() && turned){
-					System.out.println(customer.customerName +" arrived at "+ customer.customerArrivalTime+ " turned away at " + t.getElapsedTime());
+				} else if (map.soldAllSeats() && turned) {
+					System.out.println(customer.customerName + " arrived at " + customer.customerArrivalTime
+							+ " turned away at " + t.getElapsedTime());
 					turned = false;
 				}
 			}

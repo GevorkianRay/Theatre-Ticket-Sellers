@@ -71,8 +71,9 @@ public class LSeller extends Seller {
 					System.out.println(c.customerName + " bought a ticket and leaves.");
 					map.toString();
 					System.out.println();
-				}else if( map.soldAllSeats() && turned){
-					System.out.println(customer.customerName +" arrived at "+ customer.customerArrivalTime+ " turned away at " + t.getElapsedTime());
+				} else if (map.soldAllSeats() && turned) {
+					System.out.println(customer.customerName + " arrived at " + customer.customerArrivalTime
+							+ " turned away at " + t.getElapsedTime());
 					turned = false;
 				}
 			}

@@ -113,6 +113,9 @@ public class Seller implements Runnable {
 	public boolean shouldSell(int currentMinute, Customer currentCustomer) {
 		if (currentMinute >= currentCustomer.customerArrivalTime) {
 			// System.out.println(name + "\t" + listOfCustomers.size());
+			if (currentMinute == currentCustomer.customerArrivalTime) {
+				System.out.println(currentCustomer.customerName + " arrives.");
+			}
 			return true;
 		}
 		return false;
