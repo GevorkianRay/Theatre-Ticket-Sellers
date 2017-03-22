@@ -37,7 +37,7 @@ public class LSeller extends Seller {
 	public void sellTicket(int minServeTime, int maxServeTime, Customer customer) {
 		Timer timer = new Timer();
 		sellingTime = (int) (Math.random() * 4 + 4);
-		System.out.println(name + " takes " + sellingTime + " mins");
+		System.out.println(name + " takes " + sellingTime + " mins for customer " + customer.customerName);
 		while (timer.getElapsedTime() < sellingTime) {
 		} // Do nothing until it is time to sell.
 		if (!listOfCustomers.isEmpty()) {
