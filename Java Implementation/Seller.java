@@ -64,7 +64,7 @@ public class Seller implements Runnable {
 		Customer hold = null;
 		while (t.secondsElapsed < 60) {
 			int currentTime = t.getElapsedTime();
-			if (!listOfCustomers.isEmpty() && map.soldAllSeats()) {
+			if (!listOfCustomers.isEmpty() && !map.soldAllSeats()) {
 				Customer current = listOfCustomers.get(0);
 				hold = current;
 				if (shouldSell(currentTime, current)) {

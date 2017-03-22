@@ -61,11 +61,11 @@ public class Seats {
      * @return whether or not there is any seats available.
      */
     public boolean soldAllSeats() {
-        boolean soldAllSeats = false;
+        boolean soldAllSeats = true;
         for (int i = 0; i < seats.length; i++) {
             for (int x = 0; x < seats.length; x++) {
                 if (!isSold(i, x)) {
-                    soldAllSeats = true;
+                    soldAllSeats = false;
                 }
             }
         }
