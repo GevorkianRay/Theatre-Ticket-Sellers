@@ -72,8 +72,7 @@ public class LSeller extends Seller {
 					map.toString();
 					System.out.println();
 				} else if (map.soldAllSeats() && turned) {
-					System.out.println(customer.customerName + " arrived at " + customer.customerArrivalTime
-							+ " turned away at " + t.getElapsedTime());
+					System.out.println(customer.customerName + " turned away");
 					turned = false;
 				}
 			}
