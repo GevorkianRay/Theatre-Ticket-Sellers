@@ -91,7 +91,7 @@ public class Seller implements Runnable {
 		while(t.getElapsedTime()<67) {
 			if(!listOfCustomers.isEmpty() && run) {
 				for(int i = 0 ; i < listOfCustomers.size();i++) {
-					System.out.println(name + "\t " +listOfCustomers.get(i).customerName + "\t" + t.secondsElapsed);
+					System.out.println(name + " " +listOfCustomers.get(i).customerName +" was turned away");
 					run=false;
 				}
 			}
