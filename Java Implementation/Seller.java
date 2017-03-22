@@ -61,8 +61,9 @@ public class Seller implements Runnable {
 	 * Allows the seller to start selling within the time limit.
 	 */
 	public void run() {
+		boolean run = true;
 		Customer hold = null;
-		while (t.secondsElapsed < 60) {
+		while (t.getElapsedTime() < 60) {
 			int currentTime = t.getElapsedTime();
 			if (!listOfCustomers.isEmpty() && !map.soldAllSeats()) {
 				Customer current = listOfCustomers.get(0);
@@ -85,6 +86,15 @@ public class Seller implements Runnable {
 
 			}
 
+		}
+		
+		while(t.getElapsedTime()<67) {
+			if(!listOfCustomers.isEmpty() && run) {
+				for(int i = 0 ; i < listOfCustomers.size();i++) {
+					System.out.println(name + "\t " +listOfCustomers.get(i).customerName + "\t" + t.secondsElapsed);
+					run=false;
+				}
+			}
 		}
 
 	}

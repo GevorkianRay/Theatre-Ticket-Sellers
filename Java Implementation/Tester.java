@@ -35,7 +35,13 @@ public class Tester implements Runnable {
 		Thread t8 = new Thread(L4);
 		Thread t9 = new Thread(L5);
 		Thread t10 = new Thread(L6);
-
+		
+	ArrayList<Customer> ab = new ArrayList<Customer>();
+	L1.listOfCustomers=ab;
+	ab.add(new Customer(58,"H1"));
+	ab.add(new Customer(59,"L1"));
+	ab.add(new Customer(60,"dsa"));
+		
 		t1.start();
 		t2.start();
 		t3.start();
