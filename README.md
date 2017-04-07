@@ -1,2 +1,2 @@
-# MultiThreaded_TicketSellers
-A tentative implementation of CS 149 HW3.
+# Theatre-Ticket-Sellers
+Simulation of multiple sellers running at once in sync to sell tickets for a Theatre. Utilizes multi threading.
