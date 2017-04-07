@@ -6,9 +6,9 @@ public class Tester implements Runnable {
 	static ArrayList<Seller> sell = new ArrayList<Seller>();
 
 	public static void main(String[] args) throws InterruptedException {
-		System.out.println("Enter # of customers:");// gets the number of
-													// customers
-		Scanner scan = new Scanner(System.in); // for each seller
+		System.out.println("Enter # of customers:");
+													
+		Scanner scan = new Scanner(System.in); 
 		int numCustomers = scan.nextInt();
 		scan.close();
 		Seats seat = new Seats();
@@ -97,7 +97,7 @@ public class Tester implements Runnable {
 				sumNumSold += sell.get(i).numTicketsSold;
 				// sumTurnedAway =+ sell.get(i).turnedAway;
 			}
-			System.out.println("Number of tickets sold total: " + sumNumSold);
+			System.out.println("Total number of tickets sold: " + sumNumSold);
 			System.out.println("Number of customer turned away: " + sumTurnedAway);
 			/*
 			 * for(int i = 0; i<sell.size(); i++){
